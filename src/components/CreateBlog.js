@@ -5,7 +5,7 @@ import './CreateBlog.css';
 
 const CreateBlog = () => {
   const navigate = useNavigate();
-  const { createBlog, publishBlog,autoSaveBlogDraft } = useContext(BlogContext);
+  const { createBlog, publishBlog, autoSaveBlogDraft } = useContext(BlogContext);
 
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -15,37 +15,28 @@ const CreateBlog = () => {
   const [publishing, setPublishing] = useState(false);
   const [savedBlogId, setSavedBlogId] = useState(null);
 
+  useEffect(() => {
+    if (!title && !content) return;
 
+    const timer = setTimeout(async () => {
+      const blogData = {
+        title,
+        content,
+        status: 'draft',
+        thumbnail: null,
+      };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-useEffect(() => {
-  if (!title && !content) return;
+      const result = await autoSaveBlogDraft(blogData, savedBlogId);
+      if (result.success) {
+        setSavedBlogId(result.data._id);
+        console.log('Auto-saved draft');
+      }
+    }, 5000); // Auto-save after 5 seconds of inactivity
 
-  const timer = setTimeout(async () => {
-    const blogData = {
-      title,
-      content,
-      status: 'draft',
-      thumbnail: null,
-    };
+    return () => clearTimeout(timer); // Clear on next input
+  }, [title, content, autoSaveBlogDraft, savedBlogId]); // Added missing dependencies
 
-    const result = await autoSaveBlogDraft(blogData, savedBlogId);
-       if (result.success) {
-      setSavedBlogId(result.data._id);
-      console.log('Auto-saved draft');
-      
-    }
-  }, 5000); // Auto-save after 5 seconds of inactivity
-  return () => clearTimeout(timer); // Clear on next input
-}, [title, content]);
-
-
-
-
-
-
-
-  // Clear message in 2 seconds//
+  // Clear error message after 2 seconds
   useEffect(() => {
     let timer;
 
@@ -58,13 +49,14 @@ useEffect(() => {
     return () => clearTimeout(timer);
   }, [localError]);
 
+  // Clear success message and navigate after 2 seconds
   useEffect(() => {
     let timer;
 
     if (successMessage) {
       timer = setTimeout(() => {
         setSuccessMessage('');
-        navigate('/blogs'); // navigate after success message disappears
+        navigate('/blogs');
       }, 2000);
     }
 
