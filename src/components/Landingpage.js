@@ -110,8 +110,8 @@ const userTexts = [
       </section>
 
       <section className="cta">
-        <h2 className="cta-title">Ready to Get Fit?</h2>
-        <p className="cta-subtitle">Sign up now and take the first step towards a healthier you.</p>
+        <h2 className="cta-title">Ready to Get Started!</h2>
+        <p className="cta-subtitle">Sign up now and take the first step towards a Creating a new you.</p>
         <a href="/signup" className="cta-button" aria-label="Sign up for fitness now">Join Now</a>
       </section>
     </div>
