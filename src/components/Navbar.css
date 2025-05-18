@@ -1,0 +1,136 @@
+.navbar {
+   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  border-bottom: 1px solid #e5e7eb; /* border-gray-200 */
+  position: sticky;
+  top: 10;
+  z-index: 50;
+  transition: all 0.3s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* shadow-sm */
+  backdrop-filter: blur(10px);
+    max-width:100rem; 
+}
+
+.navbar-brand {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgb(183, 179, 179); /* text-gray-900 */
+  font-size: 2rem; /* text-xl */
+  font-weight: 700; /* font-bold */
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #ffffff; /* text-primary, assuming Tailwind's blue-500 */
+  transform: translateX(3px);
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem;
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem;
+  max-width:100rem; /* max-w-7xl = 1280px (approx 80rem) */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .container-fluid {
+    padding-left: 1.5rem; /* md:px-6 */
+    padding-right: 1.5rem;
+  }
+}
+
+.togglebtn {
+  color: #374151; /* text-gray-700 */
+  outline: none;
+  border-radius: 0.375rem; /* rounded-md */
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.togglebtn:focus {
+  outline: none;
+}
+
+.togglebtn:hover {
+  background-color: #f3f4f6; /* hover:bg-gray-100 */
+}
+
+.dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); /* shadow-lg */
+  border-radius: 0.5rem; /* rounded-lg */
+  padding-top: 0.5rem; /* py-2 */
+  padding-bottom: 0.5rem;
+  border: 1px solid #e5e7eb; /* border-gray-200 */
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+  position: absolute;
+  z-index: 50;
+  animation: fadeIn 0.2s ease-out, slideInUp 0.2s ease-out;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem;
+  padding-top: 0.5rem; /* py-2 */
+  padding-bottom: 0.5rem;
+  color: #374151; /* text-gray-700 */
+  transition: background-color 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  color: #3b82f6; /* text-primary */
+  border-left: 2px solid #3b82f6;
+  padding-left: calc(1rem - 2px); /* maintain padding but offset for border */
+  background-color: #f3f4f6; /* hover:bg-gray-100 */
+}
+
+.dropdown-item.text-danger:hover {
+  color: #dc2626; /* text-danger */
+  border-left: 2px solid #dc2626;
+  padding-left: calc(1rem - 2px);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    right: 0 !important;
+    top: 3.5rem !important;
+  }
+}
+
+/* You need to define the fadeIn and slideInUp keyframes if you want the animations to work */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,100 @@
+/* Spacing utility */
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+/* Label styles */
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #ffffff !important; /* force white label */
+}
+
+/* Input and textarea styles */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: white !important; /* white text */
+  background-color: #1e293b !important; /* dark background */
+  border: 1px solid #ffffff;
+  border-radius: 0.375rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+  resize: vertical;
+}
+
+/* Remove hover effect */
+.form-control:hover {
+  background-color: #1e293b !important;
+  color: white !important;
+  border-color: #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Focus effect only */
+.form-control:focus {
+  border-color: #ffffff !important;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) !important;
+  outline: none !important;
+  background-color: #1e293b !important;
+  color: white !important;
+}
+
+.form-control:disabled {
+  background-color: #2e2e2e !important;
+  cursor: not-allowed;
+  opacity: 0.7;
+  color: white !important;
+}
+
+/* Button base */
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  color: white;
+  background-color: #002e77;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.btn:disabled {
+  background-color: #002855;
+  cursor: not-allowed;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #ffffff;
+}
+
+/* Error text */
+.text-red-600 {
+  color: #dc2626;
+}
+
+/* Global background and font color */
+body {
+  background: black;
+  color: white;
+  font-family: inherit;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Placeholder text color */
+.form-control::placeholder {
+  color: #cbd5e1;
+}

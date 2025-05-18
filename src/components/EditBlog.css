@@ -1,0 +1,153 @@
+.max-w-4xl {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.max-w-4xl h1 {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;     /* font-bold */
+  color: #1f2937;       /* text-gray-900 */
+  margin-bottom: 2rem;  /* mb-8 */
+  position: relative;
+  padding-bottom: 0.75rem; /* pb-3 */
+  text-align: center;
+}
+
+.max-w-4xl h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 6rem;         /* w-24 */
+  height: 0.25rem;     /* h-1 */
+  color: aliceblue;
+  background-color: #000000; /* bg-primary (assumed as Tailwind's blue-500) */
+  border-radius: 9999px; /* rounded */
+  transform: translateX(-50%);
+}
+
+.form-label {
+  display: block;
+  color: #000000;         /* text-gray-700 */
+  font-size:1.5rem;    /* text-sm */
+  font-weight: 600;       /* font-semibold */
+  margin-bottom: 0.2rem;  /* mb-2 */
+}
+
+.form-control {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  appearance: none;
+  display: block;
+  width: 100%;
+  font-size: large;
+  padding: 0.75rem;       /* p-3 */
+  line-height: 1.5;
+  color: #ffffff;         /* text-gray-700 */
+  border: 1px solid #ffffff; /* border-gray-300 */
+  border-radius: 0.5rem;  /* rounded-lg */
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: 0 0 0 2px #3b82f6; /* focus:ring-2 focus:ring-primary */
+}
+
+textarea.form-control {
+  height: 16rem;          /* h-64 */
+  resize: none;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem; /* py-3 px-6 */
+  border-radius: 0.5rem;   /* rounded-lg */
+  font-weight: 500;        /* font-medium */
+  transition: all 0.3s ease;
+  outline: none;
+  background-color: #022151; /* Save button base color */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 2px #072556;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #002576; /* darker blue on hover */
+}
+
+.btn-cancel {
+  background-color: #e5e7eb; /* bg-gray-200 */
+  color: #1f2937;            /* text-gray-800 */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  outline: none;
+}
+
+.btn-cancel:hover {
+  background-color: #3b82f6; /* match save button hover color */
+  color: white;              /* white text on hover */
+}
+
+.btn-cancel:focus {
+  box-shadow: 0 0 0 2px #ffffff; /* focus:ring-gray-400 */
+}
+
+.flex.justify-end.gap-4 {
+  margin-top: 2rem;         /* mt-8 */
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;                /* gap-4 */
+}
+
+.text-center.mt-10 {
+  padding: 2rem;            /* p-8 */
+  background-color: #ffffff;
+  border-radius: 0.5rem;    /* rounded-lg */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1),
+              0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.text-red-600 {
+  color: #dc2626; /* Tailwind's red-600 */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .max-w-4xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .flex.justify-end.gap-4 {
+    flex-direction: column;
+  }
+
+  .btn,
+  .btn-cancel {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
